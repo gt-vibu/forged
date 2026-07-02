@@ -1,0 +1,30 @@
+# Node dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Local env files
+.env
+backend/.env
+frontend/.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+backend/dist/
+frontend/dist/
+out/
+build/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+backend/logs/
+
+# IDE / System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
