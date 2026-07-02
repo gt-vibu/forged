@@ -34,10 +34,6 @@ const controller = new AuthController();
  *               password:
  *                 type: string
  *                 example: Secure@123
- *               role:
- *                 type: string
- *                 enum: [USER, ADMIN, SUPER_ADMIN]
- *                 example: USER
  *     responses:
  *       201:
  *         description: User registered successfully

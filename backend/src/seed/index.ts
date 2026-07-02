@@ -6,7 +6,7 @@ import { Logger } from "../config/logger";
 export const seedSuperAdmin = async (): Promise<void> => {
   try {
     const userRepository = new UserRepository();
-    const adminEmail = "admin@company.com";
+    const adminEmail = process.env.DEFAULT_ADMIN_EMAIL || "admin@company.com";
 
     // Check if any Super Admin exists or this email exists
     const adminExists = await userRepository.findByEmail(adminEmail);
@@ -16,7 +16,7 @@ export const seedSuperAdmin = async (): Promise<void> => {
       return;
     }
 
-    const defaultPassword = "Admin@12345";
+    const defaultPassword = process.env.DEFAULT_ADMIN_PASSWORD || "Admin@12345";
     const passwordHash = await hashPassword(defaultPassword);
 
     await userRepository.create({

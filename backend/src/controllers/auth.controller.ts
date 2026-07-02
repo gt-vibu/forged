@@ -8,9 +8,9 @@ export class AuthController {
   constructor(private readonly authService = new AuthService()) {}
 
   public register = asyncHandler(async (req: AuthenticatedRequest, res: Response): Promise<void> => {
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
 
-    const user = await this.authService.register(name, email, password, role);
+    const user = await this.authService.register(name, email, password);
 
     sendSuccess({
       res,

@@ -14,7 +14,6 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [role, setRole] = useState<string>("USER");
   const [loading, setLoading] = useState<boolean>(false);
   const [validationError, setValidationError] = useState<string | null>(null);
 
@@ -56,7 +55,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
       if (isLogin) {
         await login(email, password);
       } else {
-        await register(name, email, password, role);
+        await register(name, email, password);
       }
       onClose();
     } catch (err: any) {
@@ -165,28 +164,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
               )}
             </div>
 
-            {!isLogin && (
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-1.5">
-                  Select User Role
-                </label>
-                <select
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-lg glass-input text-sm appearance-none cursor-pointer"
-                >
-                  <option className="bg-slate-900 text-white" value="USER">
-                    USER (View Dashboard & Read Tasks)
-                  </option>
-                  <option className="bg-slate-900 text-white" value="ADMIN">
-                    ADMIN (Full Task CRUD Access)
-                  </option>
-                  <option className="bg-slate-900 text-white" value="SUPER_ADMIN">
-                    SUPER_ADMIN (Full Task CRUD Access)
-                  </option>
-                </select>
-              </div>
-            )}
+
 
             <button
               type="submit"
