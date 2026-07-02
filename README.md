@@ -138,3 +138,6 @@ Three defined permission tiers:
 ## API Documentation
 Once the backend is running, access the interactive OpenAPI/Swagger Swagger-UI docs at:
 **[http://localhost:5000/api/docs](http://localhost:5000/api/docs)**
+## Admin details :
+   email: admin@company.com
+   password: Admin@12345
